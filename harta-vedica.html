@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harta cerului la naștere — o citire Jyotish</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a111e;
+    --deep:#0e1a2e;
+    --water:#13223c;
+    --panel-bg:#132038;
+    --pale:#ece3d1;
+    --body:#dcd4c4;
+    --muted:#94a1bb;
+    --gold:#c9a457;
+    --gold-dim:#8f7638;
+    --line:rgba(201,164,87,.28);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(120% 55% at 50% -8%, rgba(201,164,87,.10), rgba(201,164,87,0) 60%),
+      linear-gradient(180deg, #09101c 0%, #0b1524 45%, #0a1220 100%);
+    color:var(--body);
+    font-family:'Spectral', Georgia, serif;
+    font-weight:400;
+    font-size:19px;
+    line-height:1.78;
+    letter-spacing:.002em;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 26px 90px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    text-align:center;
+    padding:104px 0 58px;
+    overflow:hidden;
+    animation:rise 1.2s ease both;
+  }
+  .starfield{position:absolute;inset:0;pointer-events:none;}
+  .starfield i{
+    position:absolute;width:2px;height:2px;border-radius:50%;
+    background:var(--gold);opacity:.0;
+    animation:twinkle 6s ease-in-out infinite;
+  }
+  .eyebrow{
+    font-family:'Spectral',serif;
+    font-weight:400;
+    font-size:.72rem;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin:0 0 30px;
+    text-indent:.42em;
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    font-size:clamp(2.9rem,9vw,4.5rem);
+    line-height:1.02;
+    letter-spacing:.005em;
+    color:var(--pale);
+    margin:0;
+  }
+  .hero .sub{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.25rem,3.6vw,1.6rem);
+    color:var(--muted);
+    margin:14px 0 0;
+  }
+  .rule{
+    width:52px;height:1px;margin:38px auto 30px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  }
+  .birthline{
+    font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin:0;
+  }
+
+  /* ---------- COORDINATE ---------- */
+  .coords{
+    margin:8px auto 0;max-width:520px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:6px 0;
+  }
+  .crow{
+    display:flex;justify-content:space-between;align-items:baseline;
+    gap:18px;padding:13px 4px;
+    border-bottom:1px solid rgba(201,164,87,.10);
+  }
+  .crow:last-child{border-bottom:none;}
+  .crow .k{
+    font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);white-space:nowrap;
+  }
+  .crow .v{
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.42rem;font-weight:500;color:var(--pale);
+    text-align:right;
+  }
+  .crow .v small{display:block;font-size:.72rem;font-family:'Spectral',serif;
+    letter-spacing:.12em;color:var(--gold-dim);text-transform:uppercase;margin-top:2px;}
+
+  /* ---------- STAR DIVIDER ---------- */
+  .star{display:block;margin:66px auto 60px;width:26px;height:26px;opacity:.9;}
+  .star svg{display:block;width:100%;height:100%;}
+
+  /* ---------- SECTIONS ---------- */
+  section{margin:0;}
+  .lead{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.55;
+    color:var(--pale);
+    text-align:center;
+    max-width:560px;
+    margin:6px auto 0;
+  }
+  .num{
+    display:block;text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.05rem;letter-spacing:.35em;color:var(--gold);
+    margin-bottom:14px;
+  }
+  h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;
+    font-size:clamp(1.9rem,5.5vw,2.6rem);
+    line-height:1.12;
+    color:var(--pale);
+    text-align:center;
+    margin:0 0 34px;
+    letter-spacing:.005em;
+  }
+  p{margin:0 0 22px;}
+  p .em{color:var(--pale);font-style:italic;}
+  strong{color:var(--pale);font-weight:500;}
+
+  /* ---------- 2030 PANEL ---------- */
+  .panel{
+    background:linear-gradient(180deg,#122038,#0f1b31);
+    border:1px solid var(--line);
+    border-left:2px solid var(--gold);
+    border-radius:3px;
+    padding:38px 34px 30px;
+    margin-top:6px;
+  }
+  .panel .kicker{
+    font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);margin:0 0 20px;
+  }
+  .timeline{
+    list-style:none;margin:26px 0 6px;padding:0;
+    border-top:1px solid rgba(201,164,87,.14);
+  }
+  .timeline li{
+    display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+    padding:14px 2px;
+    border-bottom:1px solid rgba(201,164,87,.10);
+    font-size:.98rem;
+  }
+  .timeline .when{
+    font-family:'Cormorant Garamond',serif;font-size:1.2rem;
+    color:var(--gold);white-space:nowrap;letter-spacing:.02em;
+  }
+  .timeline .what{color:var(--body);text-align:right;}
+  .timeline .now{color:var(--pale);}
+  .timeline .now .when{color:var(--pale);}
+
+  /* ---------- CLOSING ---------- */
+  .closing{
+    text-align:center;margin-top:16px;
+  }
+  .closing p{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:1.5rem;line-height:1.55;
+    color:var(--pale);max-width:560px;margin:0 auto 18px;
+  }
+  .foot{
+    margin-top:70px;padding-top:26px;
+    border-top:1px solid rgba(201,164,87,.14);
+    font-size:.82rem;line-height:1.7;color:var(--muted);
+    text-align:center;letter-spacing:.01em;
+  }
+
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes twinkle{0%,100%{opacity:0;}45%,55%{opacity:.55;}}
+
+  @media (max-width:560px){
+    body{font-size:18px;}
+    .wrap{padding:0 20px 70px;}
+    .hero{padding:78px 0 48px;}
+    .panel{padding:30px 22px 22px;}
+    .crow .v{font-size:1.28rem;}
+    .timeline li{flex-direction:column;gap:2px;}
+    .timeline .what{text-align:left;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero{animation:none;}
+    .starfield i{animation:none;opacity:.28;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="starfield" aria-hidden="true">
+      <i style="left:12%;top:22%;animation-delay:.2s"></i>
+      <i style="left:82%;top:18%;animation-delay:1.4s"></i>
+      <i style="left:24%;top:64%;animation-delay:2.6s"></i>
+      <i style="left:70%;top:70%;animation-delay:3.5s"></i>
+      <i style="left:46%;top:12%;animation-delay:4.2s"></i>
+      <i style="left:90%;top:48%;animation-delay:1.9s"></i>
+      <i style="left:6%;top:44%;animation-delay:3.1s"></i>
+    </div>
+    <p class="eyebrow">Jyotish · Astrologie Vedică</p>
+    <h1>Harta cerului<br>la naștere</h1>
+    <p class="sub">o citire interpretativă</p>
+    <div class="rule"></div>
+    <p class="birthline">24 octombrie 1977 · ora 12:30 · Craiova</p>
+  </header>
+
+  <div class="coords">
+    <div class="crow"><span class="k">Ascendent · Lagna</span><span class="v">Săgetător</span></div>
+    <div class="crow"><span class="k">Semn lunar · Rashi</span><span class="v">Pești</span></div>
+    <div class="crow"><span class="k">Steaua nașterii</span><span class="v">Uttara Bhadrapada</span></div>
+    <div class="crow"><span class="k">Perioada curentă</span><span class="v">Venus<small>2014 – 2034</small></span></div>
+  </div>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <p class="lead">O hartă nu spune cine ești obligat să fii. Spune din ce material ești făcut — și lasă alegerea ta să scrie restul.</p>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">I</span>
+    <h2>Firea căutătorului</h2>
+    <p>Te-ai născut cu Săgetătorul la răsărit — semnul căutării de sens. Este arhetipul înțeleptului călător: cel care vrea să afle <span class="em">de ce</span>, nu doar <span class="em">cum</span>; profesorul și eternul student adăpostiți în aceeași persoană. De aici vin atracția firească spre filosofie și spre alte culturi și limbi, nevoia de a înțelege lucrurile până la temelia lor, și o onestitate directă, uneori mai directă decât s-ar aștepta ceilalți.</p>
+    <p>Nuanța ta specifică e că nu moștenești convingerile — le interoghezi. Mintea ta ajunge la înțelepciune trecând prin îndoială, întorcând ideea pe toate fețele înainte de a o accepta. Nu te mulțumești cu răspunsuri de-a gata; ceri ca fiecare adevăr să-și dovedească greutatea. Este o fire de gânditor riguros, care caută, dar nu se lasă păcălit ușor.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">II</span>
+    <h2>Rădăcini și depărtare</h2>
+    <p>Aici e, după mine, axa întregii hărți — și poate a întregii tale vieți. Pe de o parte, o Lună adâncă, sensibilă, apoasă, așezată în <strong>casa căminului și a rădăcinilor</strong>: locul mamei, al pământului, al păcii interioare. Pe de altă parte, o forță care te trage <span class="em">în afară și în sus</span>, spre lume, carieră, țări străine, viața publică.</p>
+    <p>Este semnătura clasică a celui care pleacă de acasă și își poartă casa înăuntru. Ceea ce viața aceasta te învață să ții mai <span class="em">ușor</span> — nu să pierzi, ci să nu mai strângi cu disperare — sunt tocmai rădăcinile: locul de origine, greutatea emoțională a lui „de unde vin". Iar ceea ce ești chemat să construiești este afară, în larg, în necunoscut.</p>
+    <p>De aici tensiunea liniștită care probabil te însoțește de mult: <strong>rădăcinile pe de o parte, viața clădită departe pe de alta.</strong> Nu e un conflict de rezolvat, ci o coardă întinsă care dă tonul. A ridica o casă nouă, cu mâinile tale, într-un loc pe care ți-l alegi — nu unde te-ai născut — este exact gestul arhetipal al acestei hărți: felul tău de a împăca dorul de rădăcină cu chemarea de a merge mai departe.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">III</span>
+    <h2>Meșteșugul și forma</h2>
+    <p>Zona carierei tale spune o poveste neobișnuit de precisă: îmbinarea <strong>esteticii cu tehnologia</strong>. Simțul formei, al armoniei, al frumuseții — pus în slujba analizei, a preciziei și a inovației. Steaua sub care cade această zonă este, la propriu, „steaua mâinii": semnul meșteșugului, al îndemânării, al lucrului migălos și bine făcut. Ești cineva care <span class="em">face</span> lucruri, nu doar le gândește — fie că e vorba de design, de o unealtă, de o grădină sau de o masă gătită cu grijă.</p>
+    <p>Această zonă e guvernată de aceeași energie (Venus) care conduce marele capitol de douăzeci de ani în care te afli acum, din 2014 până în 2034. E un capitol despre <strong>a construi prin muncă</strong>: prin efort răbdător, prin rafinarea meșteșugului, prin transformarea gustului și a priceperii în ceva trainic în lume. Nu e capitolul câștigului fără trudă — e capitolul așezării.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">IV</span>
+    <h2>Mintea și moștenirea</h2>
+    <p>Harta poartă o combinație clasică socotită binevoitoare pentru <strong>judecată limpede, bună reputație și încredere</strong> — genul de așezare care îi face pe ceilalți să-ți ceară părerea și să se sprijine pe ea. Dar mintea ta nu e doar limpede; e pătrunzătoare, atrasă de ceea ce stă sub suprafață, de mecanismele ascunse ale lucrurilor și ale oamenilor. E o fire care sapă — o afinitate firească pentru psihologia adâncimii.</p>
+    <p>Iar în zona sensului și a credinței, harta așază disciplina și seriozitatea sub semnul <strong>strămoșilor și al tradiției</strong>. Nu e o religiozitate moștenită comod, ci un angajament grav, câștigat prin întrebări: ajungi la ceea ce crezi trecând prin îndoială și rigoare. Legătura cu înaintașii, cu lumea din care vii, cu moștenirea culturală — toate cerute nu ca nostalgie, ci ca temă de cercetat cu onestitate.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">V</span>
+    <h2>Parteneriatul</h2>
+    <p>Zona parteneriatului e, în harta ta, una binecuvântată — acolo își are locul chiar înțelepciunea protectoare a firii tale. Parteneriatul nu e pentru tine doar tovărășie, ci <strong>sursă de creștere</strong>: relația ca loc de învățare, de lărgire, de gândit împreună. Ai nevoie de cineva care să-ți fie și interlocutor — un partener alături de care poți gândi, nu doar conviețui. Conexiunea minții contează la fel de mult ca cea a inimii.</p>
+    <p>Relația ta nu e o insulă ruptă de restul. E împletită cu prietenia, cu aspirațiile, cu lumea mai largă — uneori și cu munca, sau cu locuri străine. Harta poartă o notă <span class="em">interculturală</span>: legături care traversează granițe, întâlnirea cu cineva dintr-o altă lume decât cea în care te-ai născut. Iar în relație prețuiești armonia, echitatea, frumusețea — o legătură în care lucrurile sunt drepte și așezate cu grijă.</p>
+    <p>Fiindcă tema rădăcinilor te definește atât de adânc, partenerul care îți dăruiește sentimentul de <strong>„acasă"</strong> — un cămin lăuntric, nu doar patru pereți — are pentru tine o greutate aparte. Nu cauți doar companie, ci un loc de odihnă interioară.</p>
+    <p>O notă pe care un astrolog indian ar adăuga-o: tradiția observă în această zonă o tensiune „marțială", o energie de intensitate și nerăbdare (ceea ce se numește <span class="em">Manglik</span>). În cazul tău e mult atenuată — nu e un avertisment, ci mai degrabă o invitație la răbdare: să nu lași impulsul sau graba să forțeze ritmul, ci să dai lucrurilor timp să se așeze de la sine.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VI</span>
+    <h2>Vitalitatea</h2>
+    <p>Vitalitatea ta e, în fond, ocrotită — aceeași energie binevoitoare care veghează zona parteneriatului veghează și trupul, dăruindu-ți o constituție în general rezistentă. Dar semnul sub care te-ai născut, guvernat de planeta expansiunii, își aduce și temele lui clasice: înclinația spre <span class="em">exces</span>, spre a lua prea mult din tot ce e bun. Ficatul, greutatea, șoldurile și coapsele sunt zonele pe care tradiția le pune sub acest semn — nu ca boală, ci ca locuri de păzit prin măsură.</p>
+    <p>Zona sănătății e legată la tine de Venus — de plăcerile mesei, de dulce, de vin, de tot ce e bogat și savuros. Ești cineva care gătește, care afumă, care pune la murat, care prețuiește gustul; e o bucurie autentică, dar și locul unde cumpătarea contează cel mai mult. O atenție blândă la digestie și la echilibrul dintre desfătare și măsură îți face mai mult bine decât orice regim aspru.</p>
+    <p>Cea mai fină zonă rămâne însă cea lăuntrică. Luna ta adâncă și sensibilă, așezată aproape de un punct al neliniștii, cere o <strong>igienă emoțională</strong> la fel de serioasă ca cea trupească. Mintea ta bogată are nevoie de un sentiment de „acasă" ca să se poată odihni — somnul, liniștea, ancorarea contează pentru tine mai mult decât pentru mulți alții. Când interiorul e așezat, trupul îl urmează.</p>
+    <p>Și fiindcă traversezi până spre 2030 acel tranzit lung și apăsat al lui Saturn peste zona Lunii (<span class="em">Sade Sati</span>), aceștia sunt anii în care odihna, gestionarea stresului și grija față de sistemul nervos merită așezate pe primul loc. Nu e o vreme de forțat, ci de menținut ritmul și de întărit temelia.</p>
+    <p>Nimic din hartă nu arată o umbră gravă — mai degrabă vechea invitație a Săgetătorului: bucură-te de viață, dar cu măsură; mișcă-te, ancorează-te și prinde din timp, prin controale periodice, ceea ce stă sub suprafață. <span class="em">(Acestea sunt semnificații simbolice, în tradiția Jyotish — nu sfaturi medicale.)</span></p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VII</span>
+    <h2>Ridicarea prin greutate</h2>
+    <p>Pe hârtie, câteva energii ale hărții par „în cădere" — în poziții socotite slabe. Dar tradiția recunoaște aici un tipar aparte: aceste slăbiciuni aparente sunt <span class="em">răscumpărate</span>. Este semnătura clasică a celui care se ridică <strong>tocmai prin dificultate</strong> — greutăți timpurii legate de sine, de autoritate, de afirmare, care nu te opresc, ci se convertesc, cu timpul, în forță și în statură.</p>
+    <p>Cu alte cuvinte: forța ta nu e moștenită de-a gata, ci construită. Ceea ce a fost la început obstacol devine, printr-o muncă lungă, temelie. E o hartă a maturizării, nu a norocului ușor.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VIII</span>
+    <h2>Unde te afli acum</h2>
+    <p>Ești, până spre finalul lui 2026, într-o sub-perioadă dintre cele mai binevoitoare ale acestui capitol — o vreme colorată de teme de <strong>casă, familie, copii, învățare și legături cu locuri străine</strong>. E o fereastră favorabilă pentru cămin și proprietate, pentru educația celor apropiați, pentru lărgirea orizontului. Multe dintre firele importante ale vieții tale de acum — casa care se ridică, copilul plecat la studii departe, legăturile care traversează granițe — se potrivesc exact cu tonul acestei perioade.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">IX</span>
+    <h2>Pragul lui 2030</h2>
+    <div class="panel">
+      <p class="kicker">O restructurare, nu un an norocos</p>
+      <p>Din decembrie 2026 intri într-o sub-perioadă guvernată de <strong>Saturn</strong> — și Saturn este, în harta ta, stăpânul zonei averii acumulate, a economiilor și a resurselor. Dar Saturn nu e planeta câștigului rapid; e planeta ordinii, a disciplinei, a consolidării și a retragerii din munca activă. Când tocmai stăpânul averii este și planeta maturizării, perioada nu se citește ca „faci bani peste noapte", ci ca <span class="em">pui casa financiară în ordine</span>: restructurezi, consolidezi, așezi arhitectura pe termen lung. Iar fiindcă acest Saturn stă în zona sensului și a rostului, reorganizarea e legată de întrebări mai mari — <span class="em">pentru ce anume</span>, nu doar de cifre.</p>
+      <p>Al doilea ceas care arată spre același prag e un tranzit lung și greu al lui Saturn peste zona Lunii tale — ceea ce tradiția numește <strong>Sade Sati</strong>. El îți rulează aproximativ din 2023, iar ultima lui etapă, cea legată cel mai direct de finanțe și resurse, cade în 2029 – jumătatea lui 2030. Presiunea aceasta grea se ridică fix când se încheie și sub-perioada lui Saturn. Două cronometre independente, aceeași ușă: <strong>mijlocul lui 2030.</strong></p>
+      <p>Merită spus un lucru, mai ales dacă te gândești la o retragere fix la 2030: chiar <span class="em">după</span> acel prag, harta arată încă un val serios de energie de carieră și venit, între 2030 și 2032. Un „stop" brusc ar lăsa elan pe masă — e mai degrabă o fereastră bună de tranziție și de valorificare decât de oprire totală. Iar din 2034 se deschide un capitol cu totul nou, sub semnul Soarelui, guvernat în harta ta de zona rostului și a direcției de viață. Acolo e adevăratul „capitol următor": trecerea de la <strong>a construi și a acumula</strong> spre <strong>a găsi sensul</strong>.</p>
+      <ul class="timeline">
+        <li class="now"><span class="when">2026 – 2030</span><span class="what">Venus · Saturn — consolidare, restructurare financiară</span></li>
+        <li><span class="when">2029 – 2030</span><span class="what">Finalul Sade Sati — se ridică presiunea lungă a lui Saturn</span></li>
+        <li><span class="when">2030 – 2032</span><span class="what">Venus · Mercur — încă un val de carieră și venit</span></li>
+        <li><span class="when">din 2034</span><span class="what">Capitolul Soarelui — de la acumulare spre sens</span></li>
+      </ul>
+      <p style="margin-top:24px;margin-bottom:0">Pe scurt: 2030 nu e o dată „bună" sau „rea". E un <strong>prag de reașezare</strong> — Saturn îți cere să-ți consolidezi resursele și să limpezești arhitectura pe termen lung, astfel încât pasul următor să fie despre direcție, nu despre strâns.</p>
+    </div>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">X</span>
+    <h2>Drumul de după 2034</h2>
+    <p>Din 2034 se deschide, la tine, capitolul plecării și al depărtărilor — cu fereastra de schimbare a casei cea mai aprinsă spre a doua jumătate a acelui an. Asta despre tine o știi deja. Ce e nou aici e ce spune <span class="em">harta fetei tale</span>, pusă alături de a ta.</p>
+    <p>Harta ei arată limpede o viață adânc înrădăcinată în tărâmuri străine. Mintea ei — una dintre cele mai puternice trăsături ale hărții — e literalmente legată de „departe de casă": de studiu, de limbi, de lumea largă. E deja în Europa, iar harta o sprijină să rămână așezată acolo, nu să se întoarcă la locul de baștină. Prin firea ei, casa Emmei nu e unde s-a născut, ci unde își alege ea să fie.</p>
+    <p>Și acum partea neobișnuită. Din toamna lui 2033 până spre mijlocul lui 2036, Emma intră într-o perioadă care îi aprinde exact <strong>zona căminului și a rădăcinilor</strong> — vremea în care își întemeiază propriul „acasă". Această fereastră se suprapune aproape perfect peste fereastra ta de relocare, 2034–2036. Două hărți diferite, același interval, aceeași temă: <span class="em">casă și loc</span>. Nu doar că fiecare dintre voi se mișcă — ci vă mișcați în același timp.</p>
+    <p>Harta nu scrie cu litere de foc „te muți în Europa după ea", și nici nu poate hotărî în locul ei alegerile ei. Dar înclinația e clară, și — mai important — e sincronizată. Dacă drumurile voastre se întâlnesc undeva, momentul cel mai probabil este 2034–2036, iar locul e mai degrabă acolo unde ea e deja așezată decât unde te-ai născut tu. Restul rămâne alegerea voastră, a amândurora, cu ochii deschiși.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">XI</span>
+    <h2>Legături de familie</h2>
+    <p>Punând harta ta alături de a Ancăi și a Emmei, iese ceva neobișnuit. Cu <strong>Anca</strong> împărțiți <span class="em">același Ascendent și chiar aceeași stea a lui</span> — vă uitați la lume prin aceeași lentilă, sunteți din același aluat. Mai mult, inima ei stă exact acolo unde stau, la tine, Soarele și mintea: o rezonanță pe care tradiția o socotește printre cele mai puternice semne de legătură între doi oameni.</p>
+    <p>Amândoi aveți aceeași disciplină așezată în zona rostului; amândoi o notă marțială care, întâlnindu-se, <span class="em">se anulează reciproc</span> (semn bun, în tradiție, pentru căsnicie); iar înțelepciunea ei înălțată cade tocmai peste zona ta mai vulnerabilă — un sprijin tăcut. Nu întâmplător v-ați găsit.</p>
+    <p>Iar toți trei — tu, Anca și Emma — purtați aceeași disciplină în <strong>semnul Leului</strong>, semnul înaintașilor și al datoriei (tu și Emma chiar sub aceeași stea a lui). E pecetea voastră de familie, firul care trece prin toate trei hărțile.</p>
+    <p>Și, cum spuneam la capitolul trecut, momentul se leagă: în jurul lui <strong>2032–2034</strong> intrați toți trei, aproape simultan, într-un capitol nou — tu spre plecare și depărtare, Emma spre întemeierea căminului, Anca spre desprindere și reașezare. Nu vă mișcați separat; vă mișcați împreună.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <div class="closing">
+    <p>Firea ta caută sensul, mâinile tale fac lucruri trainice, iar sufletul tău e prins între rădăcina de acasă și larg. Harta nu-ți spune încotro s-o iei — îți arată din ce ești croit, ca alegerea să fie a ta, cu ochii deschiși.</p>
+  </div>
+
+  <p style="text-align:center;margin:52px 0 0;"><a href="index.html" style="font-family:'Spectral',serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#c9a457;text-decoration:none;border-bottom:1px solid rgba(201,164,87,.35);padding-bottom:2px;">↑ Coperta familiei</a></p>
+
+  <p class="foot">
+    Citire în tradiția Jyotish (astrologie vedică siderală), calculată din data, ora și locul nașterii.<br>
+    Astrologia este un sistem simbolic și tradițional, nu o știință validată. O hartă e o oglindă pentru reflecție și alegere — nu o sentință.
+  </p>
+
+</div>
+</body>
+</html>

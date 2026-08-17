@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sky at Your Birth — for Emma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pale:#ece3d1;
+    --body:#dcd4c4;
+    --muted:#94a1bb;
+    --gold:#c9a457;
+    --gold-dim:#8f7638;
+    --line:rgba(201,164,87,.28);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(120% 55% at 50% -8%, rgba(201,164,87,.10), rgba(201,164,87,0) 60%),
+      linear-gradient(180deg, #09101c 0%, #0b1524 45%, #0a1220 100%);
+    color:var(--body);
+    font-family:'Spectral', Georgia, serif;
+    font-weight:400;font-size:19px;line-height:1.78;letter-spacing:.002em;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 26px 90px;}
+
+  .hero{position:relative;text-align:center;padding:104px 0 58px;overflow:hidden;animation:rise 1.2s ease both;}
+  .starfield{position:absolute;inset:0;pointer-events:none;}
+  .starfield i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle 6s ease-in-out infinite;}
+  .eyebrow{font-family:'Spectral',serif;font-weight:400;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin:0 0 30px;text-indent:.42em;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.9rem,9vw,4.5rem);line-height:1.02;letter-spacing:.005em;color:var(--pale);margin:0;}
+  .hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.25rem,3.6vw,1.6rem);color:var(--muted);margin:14px 0 0;}
+  .rule{width:52px;height:1px;margin:38px auto 30px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .birthline{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0;}
+  .dedication{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--gold-dim);margin:12px 0 0;letter-spacing:.08em;}
+
+  .coords{margin:8px auto 0;max-width:520px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 0;}
+  .crow{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:13px 4px;border-bottom:1px solid rgba(201,164,87,.10);}
+  .crow:last-child{border-bottom:none;}
+  .crow .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+  .crow .v{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:500;color:var(--pale);text-align:right;}
+  .crow .v small{display:block;font-size:.72rem;font-family:'Spectral',serif;letter-spacing:.12em;color:var(--gold-dim);text-transform:uppercase;margin-top:2px;}
+
+  .star{display:block;margin:66px auto 60px;width:26px;height:26px;opacity:.9;}
+  .star svg{display:block;width:100%;height:100%;}
+
+  .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:var(--pale);text-align:center;max-width:560px;margin:6px auto 0;}
+  .num{display:block;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.35em;color:var(--gold);margin-bottom:14px;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.9rem,5.5vw,2.6rem);line-height:1.12;color:var(--pale);text-align:center;margin:0 0 34px;letter-spacing:.005em;}
+  p{margin:0 0 22px;}
+  p .em{color:var(--pale);font-style:italic;}
+  strong{color:var(--pale);font-weight:500;}
+
+  .closing{text-align:center;margin-top:16px;}
+  .closing p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:var(--pale);max-width:560px;margin:0 auto 18px;}
+  .foot{margin-top:70px;padding-top:26px;border-top:1px solid rgba(201,164,87,.14);font-size:.82rem;line-height:1.7;color:var(--muted);text-align:center;letter-spacing:.01em;}
+
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes twinkle{0%,100%{opacity:0;}45%,55%{opacity:.55;}}
+
+  @media (max-width:560px){
+    body{font-size:18px;}
+    .wrap{padding:0 20px 70px;}
+    .hero{padding:78px 0 48px;}
+    .crow .v{font-size:1.28rem;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero{animation:none;}
+    .starfield i{animation:none;opacity:.28;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="starfield" aria-hidden="true">
+      <i style="left:12%;top:22%;animation-delay:.2s"></i>
+      <i style="left:82%;top:18%;animation-delay:1.4s"></i>
+      <i style="left:24%;top:64%;animation-delay:2.6s"></i>
+      <i style="left:70%;top:70%;animation-delay:3.5s"></i>
+      <i style="left:46%;top:12%;animation-delay:4.2s"></i>
+      <i style="left:90%;top:48%;animation-delay:1.9s"></i>
+      <i style="left:6%;top:44%;animation-delay:3.1s"></i>
+    </div>
+    <p class="eyebrow">Jyotish · Vedic Astrology</p>
+    <h1>The Sky at<br>Your Birth</h1>
+    <p class="sub">an interpretive reading</p>
+    <div class="rule"></div>
+    <p class="birthline">4 September 2007 · 12:02 PM · Montreal</p>
+    <p class="dedication">for Emma</p>
+  </header>
+
+  <div class="coords">
+    <div class="crow"><span class="k">Ascendant · Lagna</span><span class="v">Libra</span></div>
+    <div class="crow"><span class="k">Moon Sign · Rashi</span><span class="v">Taurus</span></div>
+    <div class="crow"><span class="k">Birth Star</span><span class="v">Mrigashira</span></div>
+    <div class="crow"><span class="k">Current Period</span><span class="v">Rahu<small>2013 – 2031</small></span></div>
+  </div>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <p class="lead">A chart doesn't tell you who you must be. It shows you what you're made of — and leaves the rest for your life to write.</p>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">I</span>
+    <h2>Balance and Purpose</h2>
+    <p>You were born with Libra rising — a nature of balance, fairness, and harmony. You're diplomatic by instinct, attentive to others, with a natural feel for beauty and a need for good understanding and tastefully arranged things around you. You look for the bridge, not the quarrel; for measure, not the extreme.</p>
+    <p>But beneath Libra's gentleness sits your birth star — a <span class="em">star of purpose</span>. Under the calm burns a quiet resolve: you know what you want and move toward it with tenacity. You are at once peacemaking and ambitious — you seek harmony, but you don't lose yourself in it. It's a rare and powerful combination.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">II</span>
+    <h2>The Heart</h2>
+    <p>Your Moon sits in one of its most beautiful placements — the sign of an emotional nature that is <strong>stable, deep, and warm</strong>, one that draws others naturally. You have a feel for comfort and for beauty, an inner calm that people sense and settle easily beside.</p>
+    <p>The star your heart rests under is "the searching deer": a gentle curiosity, a longing to explore, to see and to know the world. And beside it, a note of intensity and will — beneath all the calm burns a passion and a strength that don't give up easily. You are stronger than you let show.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">III</span>
+    <h2>Brilliance and Far Places</h2>
+    <p>Here your chart is especially strong: a sharp, clear, analytical mind — one of the rarest positions of intellectual strength. You have a natural gift for study, for languages, for detail and for research; you understand things deeply and can put them clearly.</p>
+    <p>And, importantly, all this brilliance of mind is tied in your chart to <span class="em">foreign lands</span>. Your mind flourishes most fully <strong>far from where you were born</strong> — out in the world, among other cultures and languages. You are cut out to be a traveling scholar, someone whose mind is fed by distance and by the new. It's no accident the road has already carried you abroad.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">IV</span>
+    <h2>The Calling</h2>
+    <p>The ruler of your self sits right in the area of vocation and public life — a sign that you express yourself through <strong>what you do</strong>, through work and calling, and that you carry a natural visibility. You aren't made to stay in the shadows; the world will see you. Your calling has an aesthetic, relational, creative slant — something that brings together beauty, people, and form.</p>
+    <p>And your Sun, strongly placed in the area of fulfillment and gains, gives you confidence, dignity, and the gift of thriving among your own — of being valued and of drawing the support of those around you. You carry a light that needs no forcing to shine.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">V</span>
+    <h2>Personal Relationships</h2>
+    <p>In love and in close bonds you're drawn to <span class="em">depth</span>, not to surface. You aren't satisfied with something easy or incidental — you look for a bond that means something, that transforms you, and that you can trust completely. Loyalty and depth matter to you more than momentary shine.</p>
+    <p>Though you're a nature of harmony, beneath the gentleness sits a strong will — and in relationships your growth lies precisely in <strong>balance</strong>: keeping your own voice and wishes, without losing yourself in the effort to please the other, yet without letting intensity take the reins. When you give and receive in equal measure, you're in your element.</p>
+    <p>You're most likely drawn to someone of substance — a person who brings something serious into your life, perhaps met through your world of study or work, perhaps from a culture other than your own. For you, love can arrive by unexpected paths and carries a distinctive, out-of-the-ordinary note.</p>
+    <p>From around 2031 a long and benevolent chapter opens that, in tradition, favors serious bonds and settling alongside someone — a time when the "home" part and the "together" part grow side by side. It's not a rush, but a natural ripening.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VI</span>
+    <h2>Vitality</h2>
+    <p>The good news first: your chart shows no heavy shadow over your health. You have a generally robust constitution and an unusually good underlying emotional resilience — the foundation is solid.</p>
+    <p>As a Libra nature, your body works best in <span class="em">balance</span>: good hydration, a gentle care for the lower back and midsection, and moderation with sweets and rich food — not as harsh rules, but as a natural rhythm. Your body thanks you for steadiness, not for extremes.</p>
+    <p>You have a very active mind and a deep emotional life — which is why <strong>rest and quiet</strong> aren't a luxury for you but fuel. Good sleep, moments of retreat, and time when you're not "useful" to anyone recharge you more than you think. Take care not to carry stress in your body: when you think a great deal, movement and fresh air are your best allies.</p>
+    <p>Otherwise, the same simple wisdom: move, ground yourself, and tend to sleep and emotions as seriously as to the body. <span class="em">(These are symbolic meanings, in the Jyotish tradition — not medical advice.)</span></p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VII</span>
+    <h2>Roots and Distance</h2>
+    <p>Your home, in your chart, is not at your birthplace — but far away, out in the world. You're made to build your own "home" on your own, under a different sky than the one you were born beneath. For some this would be a loss; for you it's the natural road — your place is one you <span class="em">choose</span>, not one you inherit.</p>
+    <p>From 2031 a long and benevolent chapter opens for you — a time of growth, of wisdom, and of settling. And from 2033 the emphasis falls precisely on <strong>building your own home and putting down roots</strong>: the years when you begin to build your place in the world with your own hands. It's a beautiful beginning, and it's yours.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VIII</span>
+    <h2>A Word on Balance</h2>
+    <p>Being a Libra nature, the best gift you can give yourself is <strong>balance</strong> itself: between listening to others and listening to your own longing; between the harmony around you and the one within. Take care not to forget your own voice in the effort to keep everyone at peace.</p>
+    <p>When the two scales are even, everything best in your chart — the clear mind, the warm heart, the calling — settles into place on its own.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">IX</span>
+    <h2>Family Bonds</h2>
+    <p>Your chart doesn't stand alone. Set beside your mother's and your father's, it reveals a quiet family signature: all three of you carry the same discipline placed in the <strong>sign of Leo</strong>, the sign of ancestors and of duty. It's the seal that binds your line — a single thread running through all three charts.</p>
+    <p>With your <span class="em">mother</span>, the bond is especially tender: her mind and your heart meet under the very same star, and your karmic axis interlaces with hers — what she has already completed is, in a sense, your own edge of growth. With your <span class="em">father</span> you share the mark of the ancestors most closely of all. You come from a line whose signature you carry plainly.</p>
+    <p>And the timing rhymes. Around <strong>2032–2034</strong>, all three of you cross into a new chapter almost at once — your father toward departure and far places, your mother toward release and a fresh footing, and you toward building your own home. However far apart your roads may run, in those years they turn together.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <div class="closing">
+    <p>You carry in your chart, as your mother and father do, the sign of the ancestors — a quiet thread that ties you to the line you come from, however far the road may take you. The chart doesn't tell you which way to go; it shows you what you're made of, so the choice is yours, with open eyes and a light heart.</p>
+  </div>
+
+  <p style="text-align:center;margin:52px 0 0;"><a href="index.html" style="font-family:'Spectral',serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#c9a457;text-decoration:none;border-bottom:1px solid rgba(201,164,87,.35);padding-bottom:2px;">↑ Family index</a></p>
+
+  <p class="foot">
+    A reading in the Jyotish tradition (sidereal Vedic astrology), calculated from the date, time, and place of birth.<br>
+    Astrology is a symbolic and traditional system, not a validated science. A chart is a mirror for reflection and choice — not a verdict.
+  </p>
+
+</div>
+</body>
+</html>

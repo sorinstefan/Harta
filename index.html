@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sub același cer — hărțile unei familii</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pale:#ece3d1;--body:#dcd4c4;--muted:#94a1bb;--gold:#c9a457;--gold-dim:#8f7638;--line:rgba(201,164,87,.28);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:radial-gradient(120% 55% at 50% -8%, rgba(201,164,87,.10), rgba(201,164,87,0) 60%),linear-gradient(180deg,#09101c 0%,#0b1524 45%,#0a1220 100%);color:var(--body);font-family:'Spectral',Georgia,serif;font-weight:400;font-size:19px;line-height:1.78;letter-spacing:.002em;-webkit-font-smoothing:antialiased;min-height:100vh;}
+  .wrap{max-width:680px;margin:0 auto;padding:0 26px 90px;}
+
+  .hero{position:relative;text-align:center;padding:104px 0 40px;overflow:hidden;animation:rise 1.2s ease both;}
+  .starfield{position:absolute;inset:0;pointer-events:none;}
+  .starfield i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle 6s ease-in-out infinite;}
+  .eyebrow{font-family:'Spectral',serif;font-weight:400;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin:0 0 30px;text-indent:.42em;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.9rem,9vw,4.6rem);line-height:1.02;letter-spacing:.005em;color:var(--pale);margin:0;}
+  .hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.25rem,3.6vw,1.6rem);color:var(--muted);margin:14px 0 0;}
+  .rule{width:52px;height:1px;margin:36px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+
+  .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;line-height:1.5;color:var(--pale);text-align:center;max-width:540px;margin:34px auto 4px;}
+
+  .star{display:block;margin:52px auto 46px;width:24px;height:24px;opacity:.9;}
+  .star svg{display:block;width:100%;height:100%;}
+
+  .cards{display:flex;flex-direction:column;gap:20px;margin-top:4px;}
+  .card{
+    display:block;position:relative;text-decoration:none;color:inherit;
+    background:linear-gradient(180deg,#122038,#0f1b31);
+    border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:4px;
+    padding:26px 28px;
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  a.card:hover,a.card:focus-visible{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 30px -12px rgba(201,164,87,.35);}
+  a.card:focus-visible,.card-langs a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+  .card-role{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:2rem;line-height:1;color:var(--pale);margin:0 0 8px;}
+  .card-sub{font-size:.86rem;letter-spacing:.06em;color:var(--muted);margin:0 0 4px;}
+  .card-anchor{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dim);margin:0;}
+  .card-open{margin-top:16px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+  .card-open span{transition:transform .25s ease;display:inline-block;}
+  a.card:hover .card-open span{transform:translateX(5px);}
+  .card-langs{display:flex;gap:26px;margin-top:18px;flex-wrap:wrap;}
+  .card-langs a{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,164,87,.35);padding-bottom:3px;transition:color .2s ease,border-color .2s ease;}
+  .card-langs a:hover{color:var(--pale);border-color:var(--pale);}
+
+  .footnote{margin-top:48px;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;line-height:1.5;color:var(--pale);max-width:520px;margin-left:auto;margin-right:auto;}
+
+  .foot{margin-top:56px;padding-top:26px;border-top:1px solid rgba(201,164,87,.14);font-size:.8rem;line-height:1.7;color:var(--muted);text-align:center;letter-spacing:.01em;}
+
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes twinkle{0%,100%{opacity:0;}45%,55%{opacity:.55;}}
+
+  @media (max-width:560px){
+    body{font-size:18px;}
+    .wrap{padding:0 20px 70px;}
+    .hero{padding:78px 0 34px;}
+    .card{padding:22px 22px;}
+    .card-role{font-size:1.7rem;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero{animation:none;}
+    .starfield i{animation:none;opacity:.28;}
+    .card{transition:none;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="starfield" aria-hidden="true">
+      <i style="left:12%;top:22%;animation-delay:.2s"></i>
+      <i style="left:82%;top:18%;animation-delay:1.4s"></i>
+      <i style="left:24%;top:64%;animation-delay:2.6s"></i>
+      <i style="left:70%;top:70%;animation-delay:3.5s"></i>
+      <i style="left:46%;top:12%;animation-delay:4.2s"></i>
+      <i style="left:90%;top:48%;animation-delay:1.9s"></i>
+      <i style="left:6%;top:44%;animation-delay:3.1s"></i>
+    </div>
+    <p class="eyebrow">Jyotish · Astrologie Vedică</p>
+    <h1>Sub același cer</h1>
+    <p class="sub">hărțile unei familii</p>
+    <div class="rule"></div>
+  </header>
+
+  <p class="lead">Trei hărți, un singur neam — legate prin semnul Leului, pecetea înaintașilor, și printr-un prag comun în jurul lui 2032–2034.</p>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <nav class="cards">
+
+    <a class="card" href="harta-vedica.html">
+      <p class="card-role">Tată</p>
+      <p class="card-sub">24 octombrie 1977 · Craiova</p>
+      <p class="card-anchor">Săgetător · Pești</p>
+      <p class="card-open">Deschide harta <span>&rarr;</span></p>
+    </a>
+
+    <a class="card" href="harta-vedica-anca.html">
+      <p class="card-role">Mamă</p>
+      <p class="card-sub">Anca · 7 iunie 1979 · Craiova</p>
+      <p class="card-anchor">Săgetător · Balanță</p>
+      <p class="card-open">Deschide harta <span>&rarr;</span></p>
+    </a>
+
+    <div class="card">
+      <p class="card-role">Fiică</p>
+      <p class="card-sub">Emma · 4 septembrie 2007 · Montreal</p>
+      <p class="card-anchor">Balanță · Taur</p>
+      <div class="card-langs">
+        <a href="harta-vedica-emma.html">Română &rarr;</a>
+        <a href="harta-vedica-emma-en.html">English &rarr;</a>
+      </div>
+    </div>
+
+  </nav>
+
+  <p class="footnote">Toți trei sub semnul Leului — și, în anii 2032–2034, pe drumuri care se cotesc împreună.</p>
+
+  <p class="foot">
+    Citiri în tradiția Jyotish (astrologie vedică siderală), calculate din data, ora și locul nașterii fiecăruia.<br>
+    Astrologia este un sistem simbolic și tradițional, nu o știință validată.
+  </p>
+
+</div>
+</body>
+</html>
