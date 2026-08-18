@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harta cerului la naștere — pentru Aki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--pale:#ece3d1;--body:#dcd4c4;--muted:#94a1bb;--gold:#c9a457;--gold-dim:#8f7638;--line:rgba(201,164,87,.28);}
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:radial-gradient(120% 55% at 50% -8%, rgba(201,164,87,.10), rgba(201,164,87,0) 60%),linear-gradient(180deg,#09101c 0%,#0b1524 45%,#0a1220 100%);color:var(--body);font-family:'Spectral',Georgia,serif;font-weight:400;font-size:19px;line-height:1.78;letter-spacing:.002em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 26px 90px;}
+  .hero{position:relative;text-align:center;padding:104px 0 58px;overflow:hidden;animation:rise 1.2s ease both;}
+  .starfield{position:absolute;inset:0;pointer-events:none;}
+  .starfield i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle 6s ease-in-out infinite;}
+  .eyebrow{font-family:'Spectral',serif;font-weight:400;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin:0 0 30px;text-indent:.42em;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.9rem,9vw,4.5rem);line-height:1.02;letter-spacing:.005em;color:var(--pale);margin:0;}
+  .hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.25rem,3.6vw,1.6rem);color:var(--muted);margin:14px 0 0;}
+  .rule{width:52px;height:1px;margin:38px auto 30px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .birthline{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0;}
+  .dedication{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--gold-dim);margin:12px 0 0;letter-spacing:.08em;}
+  .coords{margin:8px auto 0;max-width:520px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 0;}
+  .crow{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:13px 4px;border-bottom:1px solid rgba(201,164,87,.10);}
+  .crow:last-child{border-bottom:none;}
+  .crow .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+  .crow .v{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:500;color:var(--pale);text-align:right;}
+  .crow .v small{display:block;font-size:.72rem;font-family:'Spectral',serif;letter-spacing:.12em;color:var(--gold-dim);text-transform:uppercase;margin-top:2px;}
+  .star{display:block;margin:66px auto 60px;width:26px;height:26px;opacity:.9;}
+  .star svg{display:block;width:100%;height:100%;}
+  .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:var(--pale);text-align:center;max-width:560px;margin:6px auto 0;}
+  .num{display:block;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.35em;color:var(--gold);margin-bottom:14px;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.9rem,5.5vw,2.6rem);line-height:1.12;color:var(--pale);text-align:center;margin:0 0 34px;letter-spacing:.005em;}
+  p{margin:0 0 22px;}
+  p .em{color:var(--pale);font-style:italic;}
+  strong{color:var(--pale);font-weight:500;}
+  .panel{background:linear-gradient(180deg,#122038,#0f1b31);border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:3px;padding:38px 34px 30px;margin-top:6px;}
+  .closing{text-align:center;margin-top:16px;}
+  .closing p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:var(--pale);max-width:560px;margin:0 auto 18px;}
+  .foot{margin-top:70px;padding-top:26px;border-top:1px solid rgba(201,164,87,.14);font-size:.82rem;line-height:1.7;color:var(--muted);text-align:center;letter-spacing:.01em;}
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes twinkle{0%,100%{opacity:0;}45%,55%{opacity:.55;}}
+  @media (max-width:560px){body{font-size:18px;}.wrap{padding:0 20px 70px;}.hero{padding:78px 0 48px;}.panel{padding:30px 22px 22px;}.crow .v{font-size:1.28rem;}}
+  @media (prefers-reduced-motion:reduce){.hero{animation:none;}.starfield i{animation:none;opacity:.28;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="starfield" aria-hidden="true">
+      <i style="left:12%;top:22%;animation-delay:.2s"></i><i style="left:82%;top:18%;animation-delay:1.4s"></i>
+      <i style="left:24%;top:64%;animation-delay:2.6s"></i><i style="left:70%;top:70%;animation-delay:3.5s"></i>
+      <i style="left:46%;top:12%;animation-delay:4.2s"></i><i style="left:90%;top:48%;animation-delay:1.9s"></i>
+      <i style="left:6%;top:44%;animation-delay:3.1s"></i>
+    </div>
+    <p class="eyebrow">Jyotish · Astrologie Vedică</p>
+    <h1>Harta cerului<br>la naștere</h1>
+    <p class="sub">o citire interpretativă</p>
+    <div class="rule"></div>
+    <p class="birthline">21 martie 2013 · ora 10:20 · București</p>
+    <p class="dedication">pentru Aki</p>
+  </header>
+
+  <div class="coords">
+    <div class="crow"><span class="k">Ascendent · Lagna</span><span class="v">Gemeni</span></div>
+    <div class="crow"><span class="k">Semn lunar · Rashi</span><span class="v">Gemeni</span></div>
+    <div class="crow"><span class="k">Steaua nașterii</span><span class="v">Punarvasu</span></div>
+    <div class="crow"><span class="k">Perioada curentă</span><span class="v">Saturn<small>2023 – 2042</small></span></div>
+  </div>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <p class="lead">O hartă nu-i spune unui copil cine trebuie să fie. Îi arată ce comori poartă în el — și lasă viața lui să le scrie mai departe.</p>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">I</span>
+    <h2>Firea</h2>
+    <p>Aki s-a născut cu Gemenii la răsărit — semnul curiozității, al vorbei și al minții mereu în mișcare. E o fire vioaie, isteață și jucăușă: vrea să știe cum funcționează totul, pune o mie de întrebări și învață repede. Are un farmec sprinten și o minte care sare ușor de la un lucru la altul.</p>
+    <p>Steaua lui de naștere, „cerbul căutător", adaugă o curiozitate blândă — bucuria de a explora, de a descoperi, de a atinge cu mâna și cu mintea tot ce e nou.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">II</span>
+    <h2>Inima</h2>
+    <p>Inima lui e la fel de vie ca mintea: simte prin cuvinte, are nevoie să povestească ce trăiește, și se atașează de oamenii cu care poate râde și vorbi. E un copil care se deschide când e ascultat.</p>
+    <p>Steaua sub care i-e așezată inima, Punarvasu, e a <span class="em">revenirii luminii</span> — semn de optimism și de o reziliență frumoasă: Aki se ridică repede după supărări și revine mereu spre bucurie. E un suflet cu inima ușoară și senină.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">III</span>
+    <h2>Un dar aparte</h2>
+    <p>Aici harta lui are ceva rar și frumos: un <strong>dar puternic pentru frumusețe și creație</strong>. Venus, planeta artei și a armoniei, e la Aki într-una dintre cele mai înalte poziții ale ei — semn de talent firesc pentru muzică, desen, culoare, formă, pentru orice cere simț estetic și inimă caldă.</p>
+    <p>E și semnul unei firi iubitoare și blânde, care aduce frumusețe în jurul ei. Partea asta artistică merită hrănită și încurajată din plin — s-ar putea să fie unul dintre marile daruri ale vieții lui.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">IV</span>
+    <h2>Mintea</h2>
+    <p>Mintea lui Aki are două fețe care se completează minunat. Pe de o parte, e <span class="em">inventivă și originală</span> — atras de cum funcționează lucrurile, de idei noi, de logică, poate de știință și de tehnologie; gândește adesea altfel decât ceilalți.</p>
+    <p>Pe de altă parte, poartă o <span class="em">maturitate</span> surprinzătoare pentru vârsta lui — o seriozitate, o disciplină și un simț al dreptății care-l fac, uneori, mai „așezat" decât te-ai aștepta de la un copil atât de vioi. E, în același timp, jucăuș și înțelept. Acum e chiar la începutul unui capitol lung de disciplină și creștere — anii aceștia îi construiesc temelia.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">V</span>
+    <h2>Vitalitatea</h2>
+    <p>Aki are o energie vie și o constituție în general bună. Fiind o fire de Gemeni, „motorul" lui e sistemul nervos și respirația — de aceea îi priesc mult <strong>rutina, somnul bun și aerul curat</strong>; prea multă agitație sau prea mult ecran îl obosesc mai tare decât pare.</p>
+    <p>O minte și o inimă atât de vii au nevoie și de momente de liniște. Mișcarea, joaca afară și un ritm calm îi țin echilibrul cel mai bine. <span class="em">(Note simbolice, în tradiția Jyotish — nu sfaturi medicale.)</span></p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VI</span>
+    <h2>Legături de familie</h2>
+    <div class="panel">
+      <p>Cea mai frumoasă legătură e cu fratele lui, <strong>Yannis</strong>: amândoi au <span class="em">exact aceeași Lună</span> — aceeași inimă, aceeași fire simțitoare și optimistă. De aceea se înțeleg, în adânc, fără cuvinte: sunt, sufletește, pe aceeași lungime de undă. Dar strălucesc diferit — la Aki, darul e al artei și al minții iscoditoare; la Yannis, al curajului și al căldurii de lider. Două lumini care se completează.</p>
+      <p>Și cu familia mai mare are fire frumoase: partea lui cea mai creativă se așază exact pe „steaua inimii" a unchiului <strong>Fane</strong>, iar latura lui serioasă și luminoasă cade în același loc cu inima <strong>Ancăi</strong> și cu mintea lui Fane. Se vede limpede că e din același neam — poartă în el aceleași fire de aur.</p>
+    </div>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <div class="closing">
+    <p>Un copil cu minte iute, inimă senină și un dar de frumusețe — și o familie în care se recunoaște. Harta nu-i spune cine trebuie să fie; arată doar ce comori poartă în el.</p>
+  </div>
+
+  <p class="foot">
+    Citire în tradiția Jyotish (astrologie vedică siderală), calculată din data, ora și locul nașterii.<br>
+    Astrologia este un sistem simbolic și tradițional, nu o știință validată. O hartă e o oglindă pentru reflecție — nu o sentință.
+  </p>
+
+</div>
+</body>
+</html>

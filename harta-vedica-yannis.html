@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harta cerului la naștere — pentru Yannis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--pale:#ece3d1;--body:#dcd4c4;--muted:#94a1bb;--gold:#c9a457;--gold-dim:#8f7638;--line:rgba(201,164,87,.28);}
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:radial-gradient(120% 55% at 50% -8%, rgba(201,164,87,.10), rgba(201,164,87,0) 60%),linear-gradient(180deg,#09101c 0%,#0b1524 45%,#0a1220 100%);color:var(--body);font-family:'Spectral',Georgia,serif;font-weight:400;font-size:19px;line-height:1.78;letter-spacing:.002em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 26px 90px;}
+  .hero{position:relative;text-align:center;padding:104px 0 58px;overflow:hidden;animation:rise 1.2s ease both;}
+  .starfield{position:absolute;inset:0;pointer-events:none;}
+  .starfield i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle 6s ease-in-out infinite;}
+  .eyebrow{font-family:'Spectral',serif;font-weight:400;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin:0 0 30px;text-indent:.42em;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.9rem,9vw,4.5rem);line-height:1.02;letter-spacing:.005em;color:var(--pale);margin:0;}
+  .hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.25rem,3.6vw,1.6rem);color:var(--muted);margin:14px 0 0;}
+  .rule{width:52px;height:1px;margin:38px auto 30px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .birthline{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0;}
+  .dedication{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--gold-dim);margin:12px 0 0;letter-spacing:.08em;}
+  .coords{margin:8px auto 0;max-width:520px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 0;}
+  .crow{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:13px 4px;border-bottom:1px solid rgba(201,164,87,.10);}
+  .crow:last-child{border-bottom:none;}
+  .crow .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+  .crow .v{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:500;color:var(--pale);text-align:right;}
+  .crow .v small{display:block;font-size:.72rem;font-family:'Spectral',serif;letter-spacing:.12em;color:var(--gold-dim);text-transform:uppercase;margin-top:2px;}
+  .star{display:block;margin:66px auto 60px;width:26px;height:26px;opacity:.9;}
+  .star svg{display:block;width:100%;height:100%;}
+  .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:var(--pale);text-align:center;max-width:560px;margin:6px auto 0;}
+  .num{display:block;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.35em;color:var(--gold);margin-bottom:14px;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.9rem,5.5vw,2.6rem);line-height:1.12;color:var(--pale);text-align:center;margin:0 0 34px;letter-spacing:.005em;}
+  p{margin:0 0 22px;}
+  p .em{color:var(--pale);font-style:italic;}
+  strong{color:var(--pale);font-weight:500;}
+  .panel{background:linear-gradient(180deg,#122038,#0f1b31);border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:3px;padding:38px 34px 30px;margin-top:6px;}
+  .closing{text-align:center;margin-top:16px;}
+  .closing p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:var(--pale);max-width:560px;margin:0 auto 18px;}
+  .foot{margin-top:70px;padding-top:26px;border-top:1px solid rgba(201,164,87,.14);font-size:.82rem;line-height:1.7;color:var(--muted);text-align:center;letter-spacing:.01em;}
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes twinkle{0%,100%{opacity:0;}45%,55%{opacity:.55;}}
+  @media (max-width:560px){body{font-size:18px;}.wrap{padding:0 20px 70px;}.hero{padding:78px 0 48px;}.panel{padding:30px 22px 22px;}.crow .v{font-size:1.28rem;}}
+  @media (prefers-reduced-motion:reduce){.hero{animation:none;}.starfield i{animation:none;opacity:.28;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="starfield" aria-hidden="true">
+      <i style="left:12%;top:22%;animation-delay:.2s"></i><i style="left:82%;top:18%;animation-delay:1.4s"></i>
+      <i style="left:24%;top:64%;animation-delay:2.6s"></i><i style="left:70%;top:70%;animation-delay:3.5s"></i>
+      <i style="left:46%;top:12%;animation-delay:4.2s"></i><i style="left:90%;top:48%;animation-delay:1.9s"></i>
+      <i style="left:6%;top:44%;animation-delay:3.1s"></i>
+    </div>
+    <p class="eyebrow">Jyotish · Astrologie Vedică</p>
+    <h1>Harta cerului<br>la naștere</h1>
+    <p class="sub">o citire interpretativă</p>
+    <div class="rule"></div>
+    <p class="birthline">17 aprilie 2013 · ora 16:10 · Roma</p>
+    <p class="dedication">pentru Yannis</p>
+  </header>
+
+  <div class="coords">
+    <div class="crow"><span class="k">Ascendent · Lagna</span><span class="v">Leu</span></div>
+    <div class="crow"><span class="k">Semn lunar · Rashi</span><span class="v">Gemeni</span></div>
+    <div class="crow"><span class="k">Steaua nașterii</span><span class="v">Punarvasu</span></div>
+    <div class="crow"><span class="k">Perioada curentă</span><span class="v">Saturn<small>2025 – 2044</small></span></div>
+  </div>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <p class="lead">O hartă nu-i spune unui copil cine trebuie să fie. Îi arată ce foc bun poartă în el — și lasă viața lui să-l aprindă cu rost.</p>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">I</span>
+    <h2>Firea</h2>
+    <p>Yannis s-a născut cu Leul la răsărit — semnul soarelui, al inimii mari și al strălucirii. E o fire caldă, generoasă și încrezătoare, cu un farmec firesc care-i adună pe ceilalți în jur. Îi place să fie văzut, să conducă jocul, să dăruiască.</p>
+    <p>Steaua lui de naștere, a bucuriei și a jocului, adaugă voie bună, creativitate și o poftă de viață molipsitoare. E genul de copil care luminează o încăpere când intră.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">II</span>
+    <h2>Inima</h2>
+    <p>Inima lui e vie, curioasă și sociabilă — simte prin vorbă și prin joacă, și înflorește printre prieteni. Are nevoie de oameni, de mișcare, de râs.</p>
+    <p>Steaua sub care i-e așezată inima, Punarvasu, e a <span class="em">revenirii luminii</span>: optimist și rezilient, revine mereu spre bucurie după orice supărare. (E, de altfel, chiar aceeași inimă ca a fratelui său, Aki — dar despre asta, la „Legături de familie".)</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">III</span>
+    <h2>Forța</h2>
+    <p>Aici harta lui e de-a dreptul puternică. Soarele — vitalitatea, curajul, demnitatea — e la Yannis în cea mai înaltă poziție a lui, alături de Marte, planeta energiei și a curajului, în semnul lui propriu. E o combinație de <strong>forță, avânt și inimă de leu</strong>.</p>
+    <p>Un copil energic, curajos, cu spirit de lider și, foarte probabil, cu har la sport și la mișcare. Are o strălucire firească și o voință puternică — genul care pornește primul și-i trage și pe ceilalți după el. Merită îndrumat cu blândețe, ca forța asta să se așeze în încredere, nu în încăpățânare.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">IV</span>
+    <h2>Inima largă</h2>
+    <p>Peste toată forța asta, harta pune un strat de <strong>bunătate și dreptate</strong>: Jupiter, planeta înțelepciunii și a generozității, veghează asupra felului în care Yannis se arată în lume. Semn că e un lider cu inimă — nu doar puternic, ci bun, drept, ocrotitor cu cei mici și mai slabi.</p>
+    <p>Iar mintea lui are și o latură visătoare, intuitivă, imaginativă. E croit să fie genul de om pe care ceilalți îl urmează fiindcă îl iubesc, nu fiindcă se tem de el.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">V</span>
+    <h2>Vitalitatea</h2>
+    <p>Yannis are o vitalitate rar de bună — energie multă, constituție puternică, poftă de mișcare. Fiind Leu, „centrul" lui e inima și șira spinării; fiind și plin de foc, are multă căldură și avânt.</p>
+    <p>Cel mai bine îi prinde să-și <strong>cheltuie</strong> energia asta în sport și joacă — și, la fel de important, să învețe și odihna: un copil-foc are nevoie și de răcorire, de somn, de apă, de momente de calm. Canalizată în mișcare, energia lui devine putere; ținută pe loc, devine neastâmpăr. <span class="em">(Note simbolice, în tradiția Jyotish — nu sfaturi medicale.)</span></p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VI</span>
+    <h2>Legături de familie</h2>
+    <div class="panel">
+      <p>Cea mai frumoasă legătură e cu fratele lui, <strong>Aki</strong>: au <span class="em">exact aceeași Lună</span> — aceeași inimă, aceeași fire optimistă și simțitoare. În adânc, se înțeleg fără cuvinte. Dar strălucesc diferit: Yannis e curajul și căldura de lider, Aki e arta și mintea iscoditoare — două lumini care se completează.</p>
+      <p>Cu familia mai mare are un fir aparte cu verișoara lui, <strong>Emma</strong>: însăși firea lui se așază exact pe inima-soare a Emmei — semn că cei doi se vor „recunoaște" ușor, ca niște fire înrudite. Iar latura lui disciplinată și luminoasă îl leagă, ca pe fratele său, de unchiul <strong>Fane</strong> și de <strong>Anca</strong>. Un neam în care firele se împletesc strâns.</p>
+    </div>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <div class="closing">
+    <p>Un băiat cu inimă de leu, curaj și căldură de lider — și un frate care-i e suflet-pereche. Harta nu-i spune cine trebuie să fie; arată doar ce foc bun poartă în el.</p>
+  </div>
+
+  <p class="foot">
+    Citire în tradiția Jyotish (astrologie vedică siderală), calculată din data, ora și locul nașterii.<br>
+    Astrologia este un sistem simbolic și tradițional, nu o știință validată. O hartă e o oglindă pentru reflecție — nu o sentință.
+  </p>
+
+</div>
+</body>
+</html>
