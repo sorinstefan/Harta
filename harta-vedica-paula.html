@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harta cerului la naștere — pentru Paula</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--pale:#ece3d1;--body:#dcd4c4;--muted:#94a1bb;--gold:#c9a457;--gold-dim:#8f7638;--line:rgba(201,164,87,.28);}
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:radial-gradient(120% 55% at 50% -8%, rgba(201,164,87,.10), rgba(201,164,87,0) 60%),linear-gradient(180deg,#09101c 0%,#0b1524 45%,#0a1220 100%);color:var(--body);font-family:'Spectral',Georgia,serif;font-weight:400;font-size:19px;line-height:1.78;letter-spacing:.002em;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 26px 90px;}
+  .hero{position:relative;text-align:center;padding:104px 0 58px;overflow:hidden;animation:rise 1.2s ease both;}
+  .starfield{position:absolute;inset:0;pointer-events:none;}
+  .starfield i{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle 6s ease-in-out infinite;}
+  .eyebrow{font-family:'Spectral',serif;font-weight:400;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin:0 0 30px;text-indent:.42em;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.9rem,9vw,4.5rem);line-height:1.02;letter-spacing:.005em;color:var(--pale);margin:0;}
+  .hero .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(1.25rem,3.6vw,1.6rem);color:var(--muted);margin:14px 0 0;}
+  .rule{width:52px;height:1px;margin:38px auto 30px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+  .birthline{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0;}
+  .dedication{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--gold-dim);margin:12px 0 0;letter-spacing:.08em;}
+  .coords{margin:8px auto 0;max-width:520px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 0;}
+  .crow{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:13px 4px;border-bottom:1px solid rgba(201,164,87,.10);}
+  .crow:last-child{border-bottom:none;}
+  .crow .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+  .crow .v{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:500;color:var(--pale);text-align:right;}
+  .crow .v small{display:block;font-size:.72rem;font-family:'Spectral',serif;letter-spacing:.12em;color:var(--gold-dim);text-transform:uppercase;margin-top:2px;}
+  .star{display:block;margin:66px auto 60px;width:26px;height:26px;opacity:.9;}
+  .star svg{display:block;width:100%;height:100%;}
+  .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:var(--pale);text-align:center;max-width:560px;margin:6px auto 0;}
+  .num{display:block;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.35em;color:var(--gold);margin-bottom:14px;}
+  h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.9rem,5.5vw,2.6rem);line-height:1.12;color:var(--pale);text-align:center;margin:0 0 34px;letter-spacing:.005em;}
+  p{margin:0 0 22px;}
+  p .em{color:var(--pale);font-style:italic;}
+  strong{color:var(--pale);font-weight:500;}
+  .intro{background:linear-gradient(180deg,#122038,#0f1b31);border:1px solid var(--line);border-radius:3px;padding:34px 32px 12px;}
+  .intro .kicker{text-align:center;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:0 0 20px;}
+  .intro h2{font-size:clamp(1.7rem,5vw,2.2rem);margin-bottom:26px;}
+  .panel{background:linear-gradient(180deg,#122038,#0f1b31);border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:3px;padding:38px 34px 30px;margin-top:6px;}
+  .closing{text-align:center;margin-top:16px;}
+  .closing p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;line-height:1.55;color:var(--pale);max-width:560px;margin:0 auto 18px;}
+  .foot{margin-top:70px;padding-top:26px;border-top:1px solid rgba(201,164,87,.14);font-size:.82rem;line-height:1.7;color:var(--muted);text-align:center;letter-spacing:.01em;}
+  @keyframes rise{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes twinkle{0%,100%{opacity:0;}45%,55%{opacity:.55;}}
+  @media (max-width:560px){body{font-size:18px;}.wrap{padding:0 20px 70px;}.hero{padding:78px 0 48px;}.panel,.intro{padding:30px 22px 18px;}.crow .v{font-size:1.28rem;}}
+  @media (prefers-reduced-motion:reduce){.hero{animation:none;}.starfield i{animation:none;opacity:.28;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="starfield" aria-hidden="true">
+      <i style="left:12%;top:22%;animation-delay:.2s"></i><i style="left:82%;top:18%;animation-delay:1.4s"></i>
+      <i style="left:24%;top:64%;animation-delay:2.6s"></i><i style="left:70%;top:70%;animation-delay:3.5s"></i>
+      <i style="left:46%;top:12%;animation-delay:4.2s"></i><i style="left:90%;top:48%;animation-delay:1.9s"></i>
+      <i style="left:6%;top:44%;animation-delay:3.1s"></i>
+    </div>
+    <p class="eyebrow">Jyotish · Astrologie Vedică</p>
+    <h1>Harta cerului<br>la naștere</h1>
+    <p class="sub">o citire interpretativă</p>
+    <div class="rule"></div>
+    <p class="birthline">28 iunie 1977 · ora 16:20 · Făgăraș</p>
+    <p class="dedication">pentru Paula</p>
+  </header>
+
+  <div class="coords">
+    <div class="crow"><span class="k">Ascendent · Lagna</span><span class="v">Balanță</span></div>
+    <div class="crow"><span class="k">Semn lunar · Rashi</span><span class="v">Scorpion</span></div>
+    <div class="crow"><span class="k">Steaua nașterii</span><span class="v">Anuradha</span></div>
+    <div class="crow"><span class="k">Perioada curentă</span><span class="v">Venus<small>2014 – 2034</small></span></div>
+  </div>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section class="intro">
+    <p class="kicker">Câteva cuvinte de început</p>
+    <h2>Ce este astrologia vedică</h2>
+    <p>Poate n-ai mai întâlnit până acum acest fel de astrologie. Se numește <strong>Jyotish</strong> (se citește „giotiș") — în sanscrită, <span class="em">„știința luminii"</span> — și este sistemul astrologic al Indiei antice, una dintre cele șase ramuri auxiliare ale Vedelor, textele sacre din care s-a născut cultura indiană. Rădăcinile ei coboară mii de ani în urmă: e una dintre cele mai vechi tradiții astronomice și astrologice din lume, transmisă neîntrerupt, din maestru în discipol, până astăzi.</p>
+    <p>Ce o deosebește de astrologia cu care suntem obișnuiți (cea occidentală, din ziare) e că se sprijină pe cerul <span class="em">real</span>: folosește pozițiile adevărate ale stelelor și constelațiilor — așa-numitul zodiac „sideral" — nu o schemă simbolică. De aceea semnul tău aici poate ieși altfel decât cel pe care îl știi. În plus, Jyotish dă o mare importanță <strong>Lunii</strong> și celor 27 de „case lunare" (<span class="em">nakshatras</span> — stelele nașterii), <strong>Ascendentului</strong> (semnul care răsărea la orizont exact la ora nașterii tale) și unui sistem de <strong>perioade planetare</strong> (Dasha) care împart viața în mari capitole, fiecare colorat de câte o planetă.</p>
+    <p>E, în fond, o tradiție <span class="em">simbolică și filozofică</span> — legată de ideile de karmă, de timp și de sens — nu o știință dovedită în înțelesul modern, ci o moștenire culturală veche și bogată, un fel aparte de a citi „vremea" unei vieți. Harta de mai jos e calculată din data, ora și locul nașterii tale, exact cum ar fi făcut-o un astrolog din acea tradiție. Iar la sfârșit am pus-o alături de a surorii tale, Anca.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <p class="lead">O hartă nu-ți spune cine trebuie să fii. Îți arată din ce ești făcută — și lasă viața ta să scrie restul.</p>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">I</span>
+    <h2>Grație și țel</h2>
+    <p>Te-ai născut cu Balanța la răsărit — o fire a echilibrului, a grației și a dreptății. Ai un simț firesc pentru frumusețe, pentru armonie și pentru oameni; cauți puntea, nu cearta, și te simți cel mai bine când lucrurile din jur sunt așezate cu gust și cu pace.</p>
+    <p>Dar sub blândețea Balanței stă steaua ta de naștere — o <span class="em">stea a scopului</span>. Sub calm, arde o hotărâre tăcută: știi ce vrei și mergi spre asta cu răbdare și tenacitate. Ești, în același timp, împăciuitoare și ambițioasă — o combinație discretă, dar puternică.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">II</span>
+    <h2>Inima adâncă</h2>
+    <p>Aici e partea cea mai profundă a ta. Luna ta stă în Scorpion — semnul adâncimii, al intensității și al simțirii puternice. Sub suprafața grațioasă a Balanței, inima ta <span class="em">simte tare</span>: cu profunzime, cu pasiune, cu o loialitate care nu se clatină ușor.</p>
+    <p>Nu-ți arăți ușor tot ce e înăuntru — păstrezi multe pentru tine și te deschizi doar celor în care ai deplină încredere. Dar cei care ajung la inima ta au acolo un aliat pe viață. Steaua sub care ți-e așezată inima, Anuradha, e chiar a devotamentului și a prieteniei adevărate. E o inimă care trece prin transformări și iese, de fiecare dată, mai puternică.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">III</span>
+    <h2>Mintea căutătoare</h2>
+    <p>Mintea ta e curioasă, vie și îndreptată spre lucrurile înalte — spre sens, spre învățătură, spre înțelegerea lui „de ce". Ai gândul și lumina așezate în zona filozofiei, a credinței și a orizonturilor largi, inclusiv a țărilor și culturilor străine.</p>
+    <p>E o minte care pune întrebări, care nu se mulțumește cu răspunsuri de-a gata și care se hrănește din a ști mai mult. Ești făcută să înveți toată viața — și, poate, să și dăruiești altora, la rândul tău, ce ai adunat.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">IV</span>
+    <h2>Chemarea</h2>
+    <p>Zona muncii și a rostului tău e marcată de Saturn — planeta seriozității, a răbdării și a temeiniciei. Semn că ajungi la locul și la respectul tău <strong>prin efort și responsabilitate</strong>, nu peste noapte. Ești cineva pe care ceilalți se pot baza: statornică, conștiincioasă, care duce lucrurile la capăt.</p>
+    <p>Recunoașterea vine treptat, dar e durabilă — nu construiești pentru o clipă, ci ceva care ține. E o forță tăcută, de temelie, pe care puțini o remarcă până când nu au nevoie de ea.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">V</span>
+    <h2>Parteneriat</h2>
+    <p>Zona parteneriatului e la tine puternică și aprinsă — forța și pasiunea așezate chiar acolo. Ești atrasă de o legătură cu viață și cu foc, nu de una călâie; pui multă energie și dăruire în relație, și ceri, pe drept, aceeași adâncime înapoi.</p>
+    <p>O notă pe care un astrolog indian ar adăuga-o: porți o intensitate „marțială" în această zonă (ceea ce se numește <span class="em">Manglik</span>) — nu un semn rău, ci o invitație la răbdare: lasă relația să crească în ritmul ei, fără s-o forțezi, și intensitatea devine căldură, nu foc mistuitor.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VI</span>
+    <h2>Vitalitatea</h2>
+    <p>Vestea bună mai întâi: harta ta arată o constituție de fond rezistentă. Zona sănătății are chiar o notă <span class="em">ocrotitoare</span> — un „luptător" firesc împotriva bolii — iar semnificatorul vieții lungi e bine așezat. Temelia e solidă.</p>
+    <p>Cel mai important lucru pentru tine e însă lăuntric. Fiindcă simți atât de adânc și ții multe pentru tine (inima ta de Scorpion), cel mai mare dar pe care ți-l poți face e să nu porți totul înăuntru: un <strong>canal pentru emoții</strong> — vorbă, scris, mișcare, un om de încredere — face pentru sănătatea ta mai mult decât orice. Stresul netrăit, la tine, se așază în trup; cel trăit și lăsat să treacă, nu.</p>
+    <p>Ca fire de Balanță, corpul tău cere echilibru: hidratare bună, o grijă blândă la zona rinichilor și a spatelui, măsură la mâncarea bogată și la ce „încinge". Iar fiindcă duci multă răspundere, păzește-ți odihna și somnul ca pe niște lucruri de preț, nu ca pe un lux.</p>
+    <p>Nimic din hartă nu arată o umbră grea — mai degrabă invitația de a-ți îngriji la fel de serios inima și liniștea pe cât îți îngrijești trupul. Mișcă-te, respiră, dă drumul la ce apasă. <span class="em">(Note simbolice, în tradiția Jyotish — nu sfaturi medicale.)</span></p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VII</span>
+    <h2>Drumul înainte</h2>
+    <p>Ești acum într-un capitol lung și, în fond, binevoitor, guvernat de Venus (până în 2034). Chiar în acești ani, până spre <strong>2027</strong>, treci printr-o fereastră caldă — bună pentru relații, pentru învățare și pentru bunăstare.</p>
+    <p>Din 2027 urmează o etapă mai serioasă, de muncă și consolidare, până spre 2030. Apoi, între <strong>2030 și 2033</strong>, vine o vreme luminoasă pentru minte, pentru învățătură și pentru noroc — una dintre ferestrele tale cele mai bune. Spre 2033–2034 se ivește o fază de <span class="em">desprindere</span> și limpezire interioară, iar din toamna lui <strong>2034</strong> se deschide un capitol cu totul nou, al Soarelui — mai vizibil, mai legat de rost, de recunoaștere și de sens.</p>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">VIII</span>
+    <h2>Legătura dintre surori</h2>
+    <div class="panel">
+      <p>Punând harta ta alături de a Ancăi, ies câteva lucruri frumoase. <span class="em">Inima ei — Luna — stă exact în semnul care te definește pe tine</span> (chiar Ascendentul tău). În tradiție, ăsta e un semn limpede de apropiere firească: Anca te „simte" și te ocrotește cu o căldură de soră care nu are nevoie de cuvinte.</p>
+      <p>Sunteți însă și minunat de <strong>diferite</strong>, și tocmai de aceea vă completați. Anca e firea senină, echilibrată — stâlpul așezat al familiei. Tu ești adâncimea: grațioasă la suprafață, dar cu o inimă care simte puternic și merge până la fund. Una liniștește, cealaltă coboară în profunzime — împreună, acoperiți amândouă felurile de a fi tare.</p>
+      <p>Și viitorul vă leagă. Amândouă treceți, aproape în același timp, printr-un <strong>prag de viață în jurul lui 2032–2034</strong>. Mai ales în 2033–2034, amândouă intrați într-o fază de <span class="em">desprindere</span> și reașezare interioară. Veți fi, în acei ani, în același anotimp sufletesc — ceea ce înseamnă că vă puteți sprijini una pe alta exact atunci când fiecare are mai mare nevoie. Nu treceți singure.</p>
+    </div>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <section>
+    <span class="num">IX</span>
+    <h2>Legătura cu Emma</h2>
+    <div class="panel">
+      <p>Cu Emma, nepoata ta, legătura e de-a dreptul surprinzătoare. V-ați născut sub <strong>același Ascendent și sub aceeași stea a lui</strong> — exact aceeași „lentilă" asupra lumii, aceeași fire grațioasă și dreaptă, cu același țel tăcut și tenace dedesubt. Sunteți, în adevăratul sens, <span class="em">suflete înrudite</span>: deși vă despart anii, vă veți „recunoaște" una pe alta ușor.</p>
+      <p>Mai e ceva frumos: înțelepciunea și căldura ta cad exact peste inima ei. În tradiție, asta înseamnă că prezența ta o <em>înalță</em> și o <em>îndrumă</em> — ești, pentru Emma, mătușa lângă care se simte înțeleasă și ocrotită, un fel de a doua busolă blândă. Dacă vreodată are nevoie de un sfat cald și de un om care „o prinde" fără explicații, tu ești aceea.</p>
+      <p>Așa se închide un cerc frumos: tu și sora ta, Anca, vă sprijiniți ca egale; iar tu și fiica ei vă legați ca suflete asemenea. E o familie în care firele se împletesc strâns.</p>
+    </div>
+  </section>
+
+  <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 0 L13.4 10.6 L24 12 L13.4 13.4 L12 24 L10.6 13.4 L0 12 L10.6 10.6 Z" fill="#c9a457"/></svg></span>
+
+  <div class="closing">
+    <p>Porți o grație la suprafață și o adâncime rară dedesubt — și o familie în jur: o soră care te simte și o nepoată care-ți seamănă. Harta nu-ți spune încotro s-o iei; îți arată din ce ești făcută, ca alegerea să rămână a ta.</p>
+  </div>
+
+  <p class="foot">
+    Citire în tradiția Jyotish (astrologie vedică siderală), calculată din data, ora și locul nașterii.<br>
+    Astrologia este un sistem simbolic și tradițional, nu o știință validată. O hartă e o oglindă pentru reflecție și alegere — nu o sentință.
+  </p>
+
+</div>
+</body>
+</html>
